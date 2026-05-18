@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 21 Añitos (La Revancha de mis 15) | Invitación</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fbf7f4;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Secciones principales */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 16px;
+            position: relative;
+        }
+
+        /* Sección 1: Portada */
+        .hero {
+            background: linear-gradient(rgba(253, 241, 237, 0.78), rgba(253, 241, 237, 0.88)),
+                url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
+            padding-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            color: #bfa15f;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero h2 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            color: #c78d8a;
+        }
+
+        .hero .badge {
+            background-color: #c78d8a;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(199, 141, 138, 0.2);
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-weight: 400;
+            padding: 0 10px;
+        }
+
+        /* Contador / Cuenta Regresiva */
+        .countdown-container {
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 15px 25px;
+            border-radius: 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 10px 25px rgba(199, 141, 138, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .countdown-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: #7a7a7a;
+            font-weight: 600;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            max-width: 70px;
+        }
+
+        .countdown-number {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: #4a4a4a;
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-top: -2px;
+        }
+
+        /* Botón de control de música flotante */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #c78d8a;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(199, 141, 138, 0.4);
+            z-index: 1000;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 2px solid white;
+        }
+
+        .music-control:active {
+            transform: scale(0.9);
+        }
+
+        /* Sección 2: Detalles (La Fiesta) */
+        .details {
+            background-color: #ffffff;
+            border-top: 1px solid #f2e3df;
+            border-bottom: 1px solid #f2e3df;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            color: #c78d8a;
+            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        .section-subtitle {
+            font-style: italic;
+            font-size: clamp(0.85rem, 3.5vw, 1rem);
+            color: #888;
+            margin-bottom: 40px;
+            max-width: 500px;
+            padding: 0 15px;
+        }
+
+        .info-grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .info-card {
+            background: #fffdfd;
+            padding: 30px 20px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 8px 20px rgba(220, 200, 195, 0.12);
+            border: 1px solid #f7ece9;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(199, 141, 138, 0.2);
+        }
+
+        .info-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .info-card h4 {
+            color: #bfa15f;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Botón pequeño para mapa */
+        .btn-sm {
+            display: inline-block;
+            background-color: #bfa15f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 3px 8px rgba(191, 161, 95, 0.2);
+        }
+
+        .btn-sm:active {
+            transform: scale(0.97);
+        }
+
+        .btn-sm:hover {
+            background-color: #a3874c;
+        }
+
+        /* Sección Cronograma / Itinerario */
+        .timeline-section {
+            background-color: #fbf7f4;
+        }
+
+        .timeline {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 16px;
+            padding-right: 10px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #e3ceca;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #c78d8a;
+            border: 2px solid #fbf7f4;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: #c78d8a;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #4a4a4a;
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        /* Sección Detalles Adicionales (Regalos) */
+        .extras {
+            background-color: #ffffff;
+            border-top: 1px solid #f2e3df;
+        }
+
+        /* Contenedor del QR de Yape */
+        .qr-wrapper {
+            margin-top: 15px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 14px;
+            border: 2px dashed #e3ceca;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-placeholder {
+            width: 160px;
+            height: 160px;
+            background-color: #e3e3e3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .qr-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .qr-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #00d2c6;
+            background: rgba(0, 210, 198, 0.1);
+            padding: 4px 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Sección Confirmación */
+        .rsvp {
+            background-color: #fdf1ed;
+        }
+
+        .rsvp h3 {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3rem, 10vw, 4rem);
+            color: #c78d8a;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(199, 141, 138, 0.12);
+            width: 100%;
+            max-width: 450px;
+            text-align: left;
+            border: 1px solid #f5e6e2;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: 0.3px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background-color: #fafafa;
+            outline: none;
+            transition: all 0.2s;
+            color: #4a4a4a;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            font-size: 0.65rem;
+            color: #aaa;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #c78d8a;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(199, 141, 138, 0.15);
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: #c78d8a;
+            color: white;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(199, 141, 138, 0.3);
+            text-transform: uppercase;
+            width: auto;
+        }
+
+        .btn:hover {
+            background-color: #b37673;
+            box-shadow: 0 7px 18px rgba(199, 141, 138, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        form .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .scroll-down {
+            margin-top: 20px;
+            color: #c78d8a;
+            font-size: 1.6rem;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+            font-weight: 300;
+            display: inline-block;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-8px);
+            }
+
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (min-width: 680px) {
+            .info-grid {
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            form {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" loop prefetch="auto">
+        <source src="Veintiuno_Noche_de_Gala.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="music-control" id="music-btn" onclick="togglePlay()">🔇</div>
+
+    <section class="hero">
+        <div class="badge">La Revancha de mis 15</div>
+        <h1>Mis 21 Añitos</h1>
+        <h2>Por fin llegó nuestra noche</h2>
+
+        <p>
+            En el 2020 la pandemia decidió cancelar mi vestido esponjoso y mi pastel... ¡Pero las ganas de juerga se
+            acumularon!
+            Seis años después, cobraré venganza con la misma ilusión, más experiencia y una ventaja gigante:
+            <br><b>¡Esta vez la barra libre es 100% legal!</b> 🥂✨
+        </p>
+
+        <!-- CONTADOR -->
+        <div class="countdown-container">
+            <div class="countdown-title">La cuenta regresiva comenzó:</div>
+            <div class="countdown" id="clock">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Min.</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seg.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Al hacer clic aquí se activará la música de fondo de manera legal para el navegador -->
+        <a href="#detalles" class="btn" onclick="startMusic()">Ver Detalles</a>
+        <a href="#detalles" class="scroll-down" onclick="startMusic()">↓</a>
+    </section>
+
+    <!-- SECCIÓN 2: DETALLES -->
+    <section id="detalles" class="details">
+        <h3 class="section-title">Cuándo & Dónde</h3>
+        <p class="section-subtitle">Separa la fecha para el eventazo del año</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <span class="icon">📅</span>
+                <h4>Fecha & Hora</h4>
+                <p><strong>Sábado, 27 de Jun.</strong></p>
+                <p>Apertura de puertas: 9:30 PM</p>
+                <p>El vals obligatorio: 10:30 PM</p>
+                <p>¡Llega a tiempo para verme bailar!</p>
+            </div>
+            <div class="info-card">
+                <span class="icon">🏠</span>
+                <h4>La Locación</h4>
+                <p><strong>¡Es en mi casa!</strong></p>
+                <p style="font-size: 0.85rem;">Urb. Coopip Mz. D Lt. 9 - SMP <br>(Ref. Espalda del cruce de la Av
+                    Alcides Vigo con la Av. Santa Rosa)</p>
+                <a href="https://maps.app.goo.gl/111C2c6VWvXhyWS48" target="_blank" class="btn-sm">📍 Abrir en Maps</a>
+            </div>
+            <div class="info-card">
+                <span class="icon">✨</span>
+                <h4>Dress Code</h4>
+                <p><strong>Sport Elegante</strong></p>
+                <p>Guapos, finos pero cómodos. Camisa y pantalón de vestir (saco opcional), o un vestido lindo. ¡Cero
+                    jeans rotos, polos casuales o ropa de diario!</p>
+            </div>
+        </div>
+        <a href="#itinerario" class="btn">Ver Itinerario</a>
+    </section>
+
+    <!-- SECCIÓN 3: CRONOGRAMA -->
+    <section id="itinerario" class="timeline-section">
+        <h3 class="section-title">El Plan de la Noche</h3>
+        <p class="section-subtitle">Protocolo de quinceañera pero con vibras de los 21</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">21:30 H</div>
+                <div class="timeline-title">Ingreso de la Manada</div>
+                <div class="timeline-desc">Fotos en el spot, abrazos acumulados y los primeros tragos para ir activando
+                    la noche.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">23:00 H</div>
+                <div class="timeline-title">El Vals de los 15 (Versión 2.0)</div>
+                <div class="timeline-desc">Entrada triunfal y el respectivo baile tradicional que la pandemia nos quitó.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">00:00 H</div>
+                <div class="timeline-title">Happy Birthday & Destrampe Total</div>
+                <div class="timeline-desc">Cantamos el cumple oficial, se abre la barra libre legal y ¡se desata la
+                    verdadera juerga en la casa!</div>
+            </div>
+        </div>
+        <a href="#sugerencias" class="btn" style="margin-top: 20px;">Reglas de Admisión</a>
+    </section>
+
+    <!-- SECCIÓN 4: EXTRAS (REGALO & QR) -->
+    <section id="sugerencias" class="extras">
+        <h3 class="section-title">Reglas del Templo</h3>
+        <p class="section-subtitle">Un par de cositas clave si es que quieres pasar la seguridad en la puerta</p>
+
+        <div class="info-grid">
+            <div class="info-card" style="max-width: 340px;">
+                <span class="icon">🎁</span>
+                <h4>El Regalo es Obligatorio</h4>
+                <p><strong>Pase de Entrada</strong></p>
+                <p style="margin-bottom: 10px;">Para entrar hay que aportar. Es obligatorio traer un regalo físico (así
+                    sea un detalle chiquito, todo vale) o dejar tu presente virtual mediante código QR. ¡Nadie pasa con
+                    las manos vacías!</p>
+                <div class="qr-wrapper">
+                    <div class="qr-placeholder">
+                        <img src="QR_YAPE.jpeg" alt="QR Yape / Plin">
+                    </div>
+                    <span class="qr-tag">Yape / Plin <br>(Yazmin Suybate)</span>
+                </div>
+            </div>
+
+            <div class="info-card"
+                style="max-width: 340px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span class="icon">🎵</span>
+                    <h4>Tu Canción</h4>
+                    <p><strong>¿Qué te hace bailar?</strong></p>
+                    <p>No quiero estatuas en mi sala. En el formulario de abajo déjame ese temazo que te hará romper la pista sí o sí.</p>
+                </div>
+                <div style="margin-top: auto; padding-top: 20px;">
+                    <a href="#confirmar" class="btn" style="font-size: 0.8rem; padding: 10px 20px;">Confirmar ya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: CONFIRMACIÓN -->
+    <section id="confirmar" class="rsvp">
+        <h3>R.S.V.P</h3>
+        <p style="font-weight: 500; letter-spacing: 1px; color: #666; margin-bottom: 25px; padding: 0 10px;">Confirma tu asistencia antes del 15 de Junio para calcular los tragos</p>
+
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfXXXXXXXXXXXXX/formResponse" method="POST">
+
+            <div class="form-group">
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="entry.111111" placeholder="Ej. Tu Nombre y Apellido" required>
+            </div>
+
+            <div class="form-group">
+                <label for="asistencia">¿Te vas a perder la revancha?</label>
+                <div class="select-wrapper">
+                    <select id="asistencia" name="entry.222222" required>
+                        <option value="" disabled selected>Selecciona tu respuesta</option>
+                        <option value="Sí, ¡ahí estaré!">¡Obvio que voy! No me pierdo esta juerga histórica</option>
+                        <option value="No podré asistir">Me la pierdo, prefiero quedarme durmiendo :(</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="invitados">¿Con cuántos cais? (Puedes traer hasta 5 adicionales):</label>
+                <div class="select-wrapper">
+                    <select id="invitados" name="entry.333333" required>
+                        <option value="Voy sol@ (1 Pase)">Voy sol@ (1 Pase)</option>
+                        <option value="Caigo con +1 (2 Pases en total)">Caigo con +1 (2 Pases en total)</option>
+                        <option value="Caigo con +2 (3 Pases en total)">Caigo con +2 (3 Pases en total)</option>
+                        <option value="Caigo con +3 (4 Pases en total)">Caigo con +3 (4 Pases en total)</option>
+                        <option value="Caigo con +4 (5 Pases en total)">Caigo con +4 (5 Pases en total)</option>
+                        <option value="Somos manada: Caigo con +5 (6 Pases en total)">Somos manada: Caigo con +5 (6
+                            Pases en total)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="musica">Tu canción infaltable para poner a vibrar la casa:</label>
+                <input type="text" id="musica" name="entry.444444"
+                    placeholder="Ej. Una de reggaetón viejo / salsa / techno">
+            </div>
+
+            <button type="submit" class="btn">Enviar Confirmación</button>
+        </form>
+    </section>
+
+    <script>
+        var audio = document.getElementById('background-music');
+        var musicStarted = false;
+
+        function startMusic() {
+            if (!musicStarted && audio) {
+                audio.play().then(function () {
+                    document.getElementById('music-btn').innerText = "🎵";
+                    musicStarted = true;
+                }).catch(function (error) {
+                    console.log("El navegador bloqueó el audio: ", error);
+                });
+            }
+        }
+
+        function togglePlay() {
+            if (!audio) return;
+
+            if (!musicStarted) {
+                audio.play().then(function () {
+                    document.getElementById('music-btn').innerText = "🎵";
+                    musicStarted = true;
+                });
+                return;
+            }
+
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('music-btn').innerText = "🎵";
+            } else {
+                audio.pause();
+                document.getElementById('music-btn').innerText = "🔇";
+            }
+        }
+
+        const currentYear = new Date().getFullYear();
+        let partyDate = new Date(`June 27, ${currentYear} 20:00:00`).getTime();
+
+        if (new Date().getTime() > partyDate) {
+            partyDate = new Date(`June 27, ${currentYear + 1} 20:00:00`).getTime();
+        }
+
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = partyDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("clock").innerHTML = "<h3 style='color:#c78d8a; font-size:1.5rem;'>¡LLEGÓ LA HORA DE LA VENGANZA!</h3>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
