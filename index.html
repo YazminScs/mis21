@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis 21 Añitos | Invitación</title>
+    <title>Mis 21 Años | Invitación Formal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -16,12 +16,48 @@
             scroll-behavior: smooth;
         }
 
-        body {
+        /* Bloqueamos el scroll por defecto hasta que interactúen */
+        html, body {
+            overflow: hidden;
             font-family: 'Montserrat', sans-serif;
             background-color: #fbf7f4;
             color: #4a4a4a;
-            overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* PANTALLA DE BIENVENIDA OBLIGATORIA */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(253, 241, 237, 0.95), rgba(253, 241, 237, 0.98)),
+                url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .welcome-overlay h2 {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3rem, 10vw, 4.5rem);
+            color: #bfa15f;
+            margin-bottom: 10px;
+        }
+
+        .welcome-overlay p {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c78d8a;
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
         /* Secciones principales */
@@ -38,7 +74,7 @@
 
         /* Sección 1: Portada */
         .hero {
-            background: linear-gradient(rgba(253, 241, 237, 0.78), rgba(253, 241, 237, 0.88)),
+            background: linear-gradient(rgba(253, 241, 237, 0.82), rgba(253, 241, 237, 0.90)),
                 url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
             padding-bottom: 40px;
         }
@@ -54,7 +90,7 @@
         .hero h2 {
             font-weight: 300;
             letter-spacing: 4px;
-            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
             margin-bottom: 25px;
             text-transform: uppercase;
             color: #c78d8a;
@@ -63,7 +99,7 @@
         .hero .badge {
             background-color: #c78d8a;
             color: white;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -77,16 +113,17 @@
         .hero p {
             font-size: clamp(0.95rem, 3vw, 1.1rem);
             max-width: 600px;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 35px;
             font-weight: 400;
             padding: 0 10px;
+            color: #5a5a5a;
         }
 
         /* Contador / Cuenta Regresiva */
         .countdown-container {
             margin-bottom: 35px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             padding: 15px 25px;
             border-radius: 40px;
             backdrop-filter: blur(8px);
@@ -150,8 +187,7 @@
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(199, 141, 138, 0.4);
             z-index: 1000;
-            transition: transform 0.2s, 
-            background-color 0.2s;
+            transition: transform 0.2s, background-color 0.2s;
             border: 2px solid white;
         }
 
@@ -159,7 +195,7 @@
             transform: scale(0.9);
         }
 
-        /* Sección 2: Detalles (La Fiesta) */
+        /* Sección 2: Detalles */
         .details {
             background-color: #ffffff;
             border-top: 1px solid #f2e3df;
@@ -254,7 +290,7 @@
             background-color: #a3874c;
         }
 
-        /* Sección Cronograma / Itinerario */
+        /* Sección Cronograma */
         .timeline-section {
             background-color: #fbf7f4;
         }
@@ -318,13 +354,13 @@
             line-height: 1.4;
         }
 
-        /* Sección Detalles Adicionales (Regalos) */
+        /* Sección Detalles Adicionales */
         .extras {
             background-color: #ffffff;
             border-top: 1px solid #f2e3df;
         }
 
-        /* Contenedor del QR de Yape */
+        /* Contenedor del QR */
         .qr-wrapper {
             margin-top: 15px;
             background: #f9f9f9;
@@ -361,8 +397,8 @@
         .qr-tag {
             font-size: 0.75rem;
             font-weight: 700;
-            color: #00d2c6;
-            background: rgba(0, 210, 198, 0.1);
+            color: #bfa15f;
+            background: rgba(191, 161, 95, 0.1);
             padding: 4px 10px;
             border-radius: 10px;
             text-transform: uppercase;
@@ -487,22 +523,9 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-8px);
-            }
-
-            60% {
-                transform: translateY(-4px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
         @media (min-width: 680px) {
@@ -519,6 +542,13 @@
 </head>
 
 <body>
+    <!-- PANTALLA BLOQUEANTE OBLIGATORIA -->
+    <div id="welcome-screen" class="welcome-overlay">
+        <h2>Mis 21 Años</h2>
+        <p>Estás cordialmente invitado</p>
+        <button class="btn" onclick="unlockInvitation()">🎵 Ingresar con Música</button>
+    </div>
+
     <audio id="background-music" loop prefetch="auto">
         <source src="Veintiuno_Noche_de_Gala.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
@@ -527,20 +557,20 @@
     <div class="music-control" id="music-btn" onclick="togglePlay()">🔇</div>
 
     <section class="hero">
-        <div class="badge">La Revancha de mis 15</div>
-        <h1>Mis 21 Añitos</h1>
-        <h2>Por fin llegó nuestra noche</h2>
+        <div class="badge">Celebración de Gala</div>
+        <h1>Mis 21 Años</h1>
+        <h2>Una Noche Especial</h2>
 
         <p>
-            En el 2020 la pandemia decidió cancelar mi vestido esponjoso y mi pastel... ¡Pero las ganas de juerga se
-            acumularon!
-            Seis años después, cobraré venganza con la misma ilusión, más experiencia y una ventaja gigante:
-            <br><b>¡Ahora la barra está 100% desbloqueada!</b> 🥂✨
+            En el 2020 la situación global nos impidió celebrar mis quince años como lo habíamos planeado. Sin embargo, el tiempo de Dios es perfecto y los momentos compartidos con las personas que amamos tienen un valor invaluable.
+            <br><br>
+            Hoy, seis años después, los invito a celebrar conmigo mis 21 años. Una noche para agradecer, disfrutar de
+            una hermosa cena, excelente música y la compañía de todos ustedes en un ambiente distinguido y alegre.
         </p>
 
         <!-- CONTADOR -->
         <div class="countdown-container">
-            <div class="countdown-title">La cuenta regresiva comenzó:</div>
+            <div class="countdown-title">La velada iniciará en:</div>
             <div class="countdown" id="clock">
                 <div class="countdown-item">
                     <span class="countdown-number" id="days">00</span>
@@ -561,83 +591,83 @@
             </div>
         </div>
 
-        <!-- Al hacer clic aquí se activará la música de fondo de manera legal para el navegador -->
-        <a href="#detalles" class="btn" onclick="startMusic()">Ver Detalles</a>
-        <a href="#detalles" class="scroll-down" onclick="startMusic()">↓</a>
+        <a href="#detalles" class="btn">Ver Detalles</a>
+        <a href="#detalles" class="scroll-down">↓</a>
     </section>
 
     <!-- SECCIÓN 2: DETALLES -->
     <section id="detalles" class="details">
         <h3 class="section-title">Cuándo & Dónde</h3>
-        <p class="section-subtitle">Separa la fecha para el eventazo del año</p>
+        <p class="section-subtitle">Acompáñame en esta fecha tan significativa</p>
 
         <div class="info-grid">
             <div class="info-card">
                 <span class="icon">🗓️</span>
                 <h4>Fecha & Hora</h4>
-                <p><strong>Sábado, 27 de Jun.</strong></p>
-                <p>Apertura de puertas: 9:30 PM</p>
-                <p>El vals obligatorio: 11:00 PM</p>
-                <p>¡Llega a tiempo para verme bailar!</p>
+                <p><strong>Sábado, 27 de Junio</strong></p>
+                <p>Recepción de invitados: 9:00 PM</p>
+                <p>Vals de honor: 10:30 PM</p>
+                <p>Agradecemos su gentil puntualidad.</p>
             </div>
             <div class="info-card">
                 <span class="icon">🏠</span>
                 <h4>La Locación</h4>
-                <p><strong>¡Es en mi casa!</strong></p>
-                <p style="font-size: 0.85rem;">Urb. Coopip Mz. D Lt. 9 - SMP <br>(Ref. Espalda del cruce de la Av
+                <p><strong>Residencia Familiar</strong></p>
+                <p style="font-size: 0.85rem;">Urb. Coopip Mz. D Lt. 9 - SMP <br>(Ref. Espalda del cruce de la Av.
                     Alcides Vigo con la Av. Santa Rosa)</p>
-                <a href="https://maps.app.goo.gl/111C2c6VWvXhyWS48" target="_blank" class="btn-sm">📍 Abrir en Maps</a>
+                <a href="https://maps.app.goo.gl/111C2c6VWvXhyWS48" target="_blank" class="btn-sm">📍 Ver Ubicación</a>
             </div>
             <div class="info-card">
                 <span class="icon">✨</span>
                 <h4>Dress Code</h4>
                 <p><strong>Sport Elegante</strong></p>
-                <p>Guapos, finos pero cómodos. Camisa y pantalón de vestir (saco opcional), o un vestido lindo. ¡Cero
-                    jeans rotos, polos casuales o ropa de diario!</p>
+                <p>Deseamos una noche impecable. Solicitamos asistir con vestimenta semi formal: camisa, pantalón
+                    de vestir o vestidos elegantes. Rogamos evitar prendas deportivas o casuales de diario.</p>
             </div>
         </div>
-        <a href="#itinerario" class="btn">Ver Itinerario</a>
+        <a href="#itinerario" class="btn">Ver Programa</a>
     </section>
 
     <!-- SECCIÓN 3: CRONOGRAMA -->
     <section id="itinerario" class="timeline-section">
-        <h3 class="section-title">El Plan de la Noche</h3>
-        <p class="section-subtitle">Protocolo de quinceañera pero con vibras de los 21</p>
+        <h3 class="section-title">Programa de la Noche</h3>
+        <p class="section-subtitle">Un itinerario preparado con mucho cariño</p>
 
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-time">21:30 H</div>
-                <div class="timeline-title">Ingreso</div>
-                <div class="timeline-desc">Fotos en el spot, abrazos acumulados y los primeros tragos para ir activando
-                    la noche.</div>
+                <div class="timeline-time">21:00 H</div>
+                <div class="timeline-title">Recepción e Ingreso</div>
+                <div class="timeline-desc">Bienvenida de los invitados, toma de fotografías de recuerdo y un brindis de honor inicial.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-time">23:00 H</div>
-                <div class="timeline-title">El Vals ceremonial (Versión 2.0)</div>
-                <div class="timeline-desc">Entrada triunfal y el respectivo baile tradicional que la pandemia nos quitó.
-                </div>
+                <div class="timeline-time">22:30 H</div>
+                <div class="timeline-title">Vals de Honor Conmemorativo</div>
+                <div class="timeline-desc">El momento protocolar de la noche. Una hermosa danza familiar que une la
+                    tradición de los quince con mis 21 años.</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-time">00:00 H</div>
-                <div class="timeline-title">Happy Birthday & Locura Total</div>
-                <div class="timeline-desc">Cantamos el cumple oficial, se abre la barra libre legal y ¡se desata la
-                    verdadera juerga en la casa!</div>
+                <div class="timeline-title">Felicitaciones & Compartir General</div>
+                <div class="timeline-desc">Canto oficial de cumpleaños, corte de la torta y apertura de la pista de
+                    baile para celebrar con alegría.</div>
             </div>
         </div>
-        <a href="#sugerencias" class="btn" style="margin-top: 20px;">Reglas de Admisión</a>
+        <a href="#sugerencias" class="btn" style="margin-top: 20px;">Notas Importantes</a>
     </section>
 
-    <!-- SECCIÓN 4: EXTRAS (REGALO & QR) -->
+    <!-- SECCIÓN 4: EXTRAS -->
     <section id="sugerencias" class="extras">
-        <h3 class="section-title">Reglas del Templo</h3>
-        <p class="section-subtitle">Un par de cositas clave si es que quieres pasar la seguridad en la puerta</p>
+        <h3 class="section-title">Pautas de Recepción</h3>
+        <p class="section-subtitle">Detalles a tomar en cuenta para el correcto ingreso</p>
 
         <div class="info-grid">
             <div class="info-card" style="max-width: 340px;">
                 <span class="icon">🎁</span>
-                <h4>El Regalo es Obligatorio</h4>
-                <p><strong>Pase de Entrada</strong></p>
-                <p style="margin-bottom: 10px;">Para entrar hay que aportar. Es obligatorio traer un regalo físico (así sea un detalle chiquito, todo vale) o dejar tu presente virtual mediante código QR. ¡Nadie pasa con las manos vacías!</p>
+                <h4>Presentes y Detalles</h4>
+                <p><strong>Muestra de Afecto</strong></p>
+                <p style="margin-bottom: 10px;">Su presencia es nuestro mayor regalo. No obstante, si desea tener un
+                    detalle conmigo, puede traer un presente físico o utilizar el código QR para un presente virtual.
+                </p>
                 <div class="qr-wrapper">
                     <div class="qr-placeholder">
                         <img src="QR_YAPE.jpeg" alt="QR Yape / Plin">
@@ -650,12 +680,13 @@
                 style="max-width: 340px; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <span class="icon">🎵</span>
-                    <h4>Tu Canción</h4>
-                    <p><strong>¿Qué te hace bailar?</strong></p>
-                    <p>No quiero estatuas en mi sala. En el formulario de abajo déjame ese temazo que te hará romper la pista sí o sí.</p>
+                    <h4>Sugerencia Musical</h4>
+                    <p><strong>¿Qué melodía deseas escuchar?</strong></p>
+                    <p>Queremos que todos disfruten en la pista de baile. En el formulario inferior, puedes sugerir tu canción favorita para considerarla en el repertorio de la velada.</p>
                 </div>
                 <div style="margin-top: auto; padding-top: 20px;">
-                    <a href="#confirmar" class="btn" style="font-size: 0.8rem; padding: 10px 20px;">Confirmar ya</a>
+                    <a href="#confirmar" class="btn" style="font-size: 0.8rem; padding: 10px 20px;">Confirmar
+                        Asistencia</a>
                 </div>
             </div>
         </div>
@@ -664,67 +695,123 @@
     <!-- SECCIÓN 5: CONFIRMACIÓN -->
     <section id="confirmar" class="rsvp">
         <h3>Confirmación</h3>
-        <p style="font-weight: 500; letter-spacing: 1px; color: #666; margin-bottom: 25px; padding: 0 10px;">Confirma tu asistencia antes del 15 de Junio para calcular los tragos</p>
 
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfXXXXXXXXXXXXX/formResponse" method="POST">
+        <!-- Contenedor del formulario (Se ocultará al enviar) -->
+        <div id="form-container"
+            style="width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center;">
+            <p
+                style="font-weight: 500; letter-spacing: 1px; color: #666; margin-bottom: 25px; padding: 0 10px; text-align: center;">
+                Por favor, confirme su asistencia antes del 15 de Junio para una correcta organización.
+            </p>
 
-            <div class="form-group">
-                <label for="name">Nombre Completo:</label>
-                <input type="text" id="name" name="entry.111111" placeholder="Ej. Tu Nombre y Apellido" required>
-            </div>
+            <!-- TRUCO: Iframe oculto para evitar la redirección -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(typeof submitted !== 'undefined' && submitted) { mostrarMensajeExito(); }"></iframe>
 
-            <div class="form-group">
-                <label for="asistencia">¿Te vas a perder la revancha?</label>
-                <div class="select-wrapper">
-                    <select id="asistencia" name="entry.222222" required>
-                        <option value="" disabled selected>Selecciona tu respuesta</option>
-                        <option value="Sí, ¡ahí estaré!">¡Obvio que voy! No me pierdo esta juerga histórica</option>
-                        <option value="No podré asistir">Me la pierdo, prefiero quedarme durmiendo</option>
-                    </select>
+            <form
+                action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeBsUQPsjM-xBQEV7hlV1bD-uts08It4ZO7hLS2JdufMMdvsQ/formResponse"
+                method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
+                <div class="form-group">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="entry.757258301" placeholder="Ej. Juan Pérez" required>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="invitados">¿Con cuántos vienes? (Puedes traer hasta 5 adicionales):</label>
-                <div class="select-wrapper">
-                    <select id="invitados" name="entry.333333" required>
-                        <option value="Voy sol@ (1 Pase)">Voy sol@ (1 Pase)</option>
-                        <option value="Caigo con +1 (2 Pases en total)">Caigo con +1 (2 Pases en total)</option>
-                        <option value="Caigo con +2 (3 Pases en total)">Caigo con +2 (3 Pases en total)</option>
-                        <option value="Caigo con +3 (4 Pases en total)">Caigo con +3 (4 Pases en total)</option>
-                        <option value="Caigo con +4 (5 Pases en total)">Caigo con +4 (5 Pases en total)</option>
-                    </select>
+                <div class="form-group">
+                    <label for="asistencia">¿Nos honrará con su presencia?</label>
+                    <div class="select-wrapper">
+                        <select id="asistencia" name="entry.634464532" required>
+                            <option value="" disabled selected>Selecciona tu respuesta</option>
+                            <option value="Sí, asistiré con mucho gusto">Sí, asistiré con mucho gusto</option>
+                            <option value="Lamentablemente no podré asistir">Lamentablemente no podré asistir</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="musica">Tu canción infaltable para poner a vibrar la casa:</label>
-                <input type="text" id="musica" name="entry.444444"
-                    placeholder="Ej. Una de reggaetón viejo / salsa / techno">
-            </div>
+                <div class="form-group">
+                    <label for="invitados">Número de acompañantes (Máximo 3 adicionales):</label>
+                    <div class="select-wrapper">
+                        <select id="invitados" name="entry.587715010" required>
+                            <option value="Asistiré sol@">Asistiré sol@ (1 Pase)</option>
+                            <option value="Asistiré con +1">Asistiré con +1 (2 Pases en total)</option>
+                        </select>
+                    </div>
+                </div>
 
-            <button type="submit" class="btn">Enviar Confirmación</button>
-        </form>
+                <div class="form-group">
+                    <label for="musica">Sugerencia de canción para la celebración:</label>
+                    <input type="text" id="musica" name="entry.789467510"
+                        placeholder="Ej. Salsa / Balada bailable / Éxito clásico">
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Enviar Confirmación</button>
+            </form>
+        </div>
+
+        <!-- Mensaje de éxito elegante (Oculto por defecto) -->
+        <div id="success-message"
+            style="display: none; background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 40px rgba(199, 141, 138, 0.12); width: 100%; max-width: 450px; text-align: center; border: 1px solid #f5e6e2; animation: fadeIn 0.5s ease;">
+            <span style="font-size: 3.5rem; display: block; margin-bottom: 15px;">✨</span>
+            <h4
+                style="font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: #c78d8a; margin-bottom: 10px; font-weight: 600;">
+                ¡Confirmación enviada!</h4>
+            <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">Muchas gracias por responder. He guardado tu asistencia de manera correcta. ¡Nos vemos muy pronto en la celebración!</p>
+        </div>
     </section>
 
-    <script>
-        var audio = document.getElementById('background-music');
-        var musicStarted = false;
+    <!-- ESTILOS ADICIONALES PARA LA ANIMACIÓN -->
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-        function startMusic() {
-            if (!musicStarted && audio) {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        var submitted = false;
+
+        // Función primordial: Quita la pantalla de bloqueo, permite scroll e inicia música
+        function unlockInvitation() {
+            var audio = document.getElementById('background-music');
+            
+            // Forzamos la reproducción de la música
+            if (audio) {
                 audio.play().then(function () {
                     document.getElementById('music-btn').innerText = "🎵";
                     musicStarted = true;
                 }).catch(function (error) {
-                    console.log("El navegador bloqueó el audio: ", error);
+                    console.log("Error al iniciar audio: ", error);
                 });
             }
+
+            // Ocultamos la pantalla protectora con animación suave
+            var overlay = document.getElementById('welcome-screen');
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+
+            // Desbloqueamos el scroll del cuerpo de la página
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
+
+        function mostrarMensajeExito() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('confirmar').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        var audio = document.getElementById('background-music');
+        var musicStarted = false;
 
         function togglePlay() {
             if (!audio) return;
-
             if (!musicStarted) {
                 audio.play().then(function () {
                     document.getElementById('music-btn').innerText = "🎵";
@@ -732,7 +819,6 @@
                 });
                 return;
             }
-
             if (audio.paused) {
                 audio.play();
                 document.getElementById('music-btn').innerText = "🎵";
@@ -743,16 +829,14 @@
         }
 
         const currentYear = new Date().getFullYear();
-        let partyDate = new Date(`June 27, ${currentYear} 20:00:00`).getTime();
-
+        let partyDate = new Date(`June 27, ${currentYear} 21:00:00`).getTime();
         if (new Date().getTime() > partyDate) {
-            partyDate = new Date(`June 27, ${currentYear + 1} 20:00:00`).getTime();
+            partyDate = new Date(`June 27, ${currentYear + 1} 21:00:00`).getTime();
         }
 
         const timer = setInterval(function () {
             const now = new Date().getTime();
             const distance = partyDate - now;
-
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -765,11 +849,10 @@
 
             if (distance < 0) {
                 clearInterval(timer);
-                document.getElementById("clock").innerHTML = "<h3 style='color:#c78d8a; font-size:1.5rem;'>¡LLEGÓ LA HORA DE LA VENGANZA!</h3>";
+                document.getElementById("clock").innerHTML = "<h3 style='color:#c78d8a; font-size:1.5rem;'>¡BIENVENIDOS A LA CELEBRACIÓN!</h3>";
             }
         }, 1000);
     </script>
-
 </body>
 
 </html>
